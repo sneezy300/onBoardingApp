@@ -4,42 +4,40 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { Button } from 'react-native-elements';
 
 
-export default function App() {
+export default function App({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.site}>
                 <Text style={styles.siteText}>www.DONKOMI.com.gh</Text>
             </View>
 
-            <View style={styles.banner}>
-                <Text style={styles.bannerText}>PAYMENT SUCCESSFUL</Text>
+            <View>
+                <Text style={styles.bannerText}>ADD TO CART</Text>
                 <Text style={styles.Us}>
                     Donkomi is Ghana’s largest home grown organized retail chain and caters primarily to the mass & middle class market segments,
                     which today constitute to 80-85% of the population.
                     Donkomi has introduced financial services to become a “ONE STOP SHOP”
-                    for all customer needs by driving financial literacy from within its stores.
-
-                    <View>
-                        <Text style={styles.thankYou}>THANK YOU FOR SHOPPING WITH US</Text>
-                    </View>
+                    for all customer needs by driving financial literacy from within its stores,
+                    HAPPY SHOPPING
                 </Text>
 
                 <View>
-                    <Image source={require('./assets/successfulPurchase.png')} style={styles.image} />
+                    <Image source={require('../../../assets/addtocart.png')} style={styles.image} />
                 </View>
 
             </View>
             <View>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Get Started</Text>
+                <TouchableOpacity onPress={() => {
+                    navigation.navigate("PaymentSuccessful")
+                }} style={styles.button}>
+                    <Text style={styles.buttonText}>Next</Text>
                 </TouchableOpacity>
             </View>
 
             <View style={styles.Navi}>
-
-                <TouchableOpacity style={styles.naviSmall}></TouchableOpacity>
                 <TouchableOpacity style={styles.naviSmall}></TouchableOpacity>
                 <TouchableOpacity style={styles.naviBig}></TouchableOpacity>
+                <TouchableOpacity style={styles.naviSmall}></TouchableOpacity>
 
 
             </View>
@@ -59,23 +57,20 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     site: {
-        marginTop: 10,
-        marginBottom: 20,
+        marginBottom: 10,
+
     },
     siteText: {
         paddingTop: 10,
         fontSize: 25
     },
 
-    banner: {
-        marginTop: 10
-    },
+
 
     bannerText: {
         alignSelf: "auto",
         fontSize: 30,
         fontWeight: "bold",
-        marginVertical: 10,
         marginHorizontal: 15
 
     },
@@ -83,14 +78,6 @@ const styles = StyleSheet.create({
         marginHorizontal: 15
 
     },
-    thankYou: {
-        marginVertical: 10,
-        fontStyle: "italic",
-        fontWeight: "bold",
-        color: "#e0dd12"
-
-    },
-
     image: {
         height: 350,
         width: 350,
@@ -145,6 +132,12 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "center",
         width: "50%",
+
+
+
+
+
+
 
 
 

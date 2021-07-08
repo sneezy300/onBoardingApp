@@ -1,17 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-import { Button } from 'react-native-elements';
 
 
-export default function App() {
+export default function App({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.site}>
                 <Text style={styles.siteText}>www.DONKOMI.com.gh</Text>
             </View>
 
-            <View style={styles.banner}>
+            <View>
                 <Text style={styles.bannerText}>ONLINE SHOPPING</Text>
                 <Text style={styles.Us}>
                     Donkomi is Ghana’s largest home grown organized retail chain and caters primarily to the mass & middle class market segments,
@@ -22,12 +21,15 @@ export default function App() {
                 </Text>
 
                 <View>
-                    <Image source={require('./assets/onlineShopping.png')} style={styles.image} />
+                    <Image source={require('../../../assets/OnlineShopping.png')} style={styles.image} />
                 </View>
-
             </View>
+
             <View>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity onPress={() => {
+                    navigation.navigate("AddToCart")
+
+                }} style={styles.button}>
                     <Text style={styles.buttonText}>Next</Text>
                 </TouchableOpacity>
             </View>
@@ -55,23 +57,17 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     site: {
-        marginTop: 10,
-        marginBottom: 20,
+        marginBottom: 10,
     },
     siteText: {
         paddingTop: 10,
         fontSize: 25
     },
 
-    banner: {
-        marginTop: 10
-    },
-
     bannerText: {
         alignSelf: "auto",
         fontSize: 30,
         fontWeight: "bold",
-        marginVertical: 15,
         marginHorizontal: 15
 
     },
