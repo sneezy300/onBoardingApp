@@ -35,9 +35,27 @@ export default function App({ navigation }) {
             </View>
 
             <View style={styles.Navi}>
+
+                <TouchableOpacity onPress={() => {
+                    navigation.navigate("onlineShopping")
+                }} style={styles.previous}>
+                    <Text style={styles.previousText}>previous</Text>
+                </TouchableOpacity>
+
+
                 <TouchableOpacity style={styles.naviSmall}></TouchableOpacity>
                 <TouchableOpacity style={styles.naviBig}></TouchableOpacity>
                 <TouchableOpacity style={styles.naviSmall}></TouchableOpacity>
+
+                <TouchableOpacity onPress={() => {
+                    navigation.navigate("PaymentSuccessful")
+                }} style={styles.skip}>
+                    <Text style={styles.skipText}>skip</Text>
+                </TouchableOpacity>
+
+
+
+
 
 
             </View>
@@ -112,15 +130,16 @@ const styles = StyleSheet.create({
 
 
 
-
-
     },
+
+
     naviSmall: {
-        height: 15,
-        width: 15,
+        height: 10,
+        width: 10,
         borderRadius: 10,
         backgroundColor: "#e6e6e6",
-
+        marginHorizontal: 5,
+        justifyContent: "center"
 
 
     },
@@ -129,18 +148,40 @@ const styles = StyleSheet.create({
     Navi: {
         flexDirection: "row",
         padding: 50,
-        justifyContent: "space-between",
+        justifyContent: "center",
         alignItems: "center",
         width: "50%",
+        position: "relative",
+        right: 25,
+    },
+
+    previous: {
+        flexDirection: "row",
+
+    },
+
+    previousText: {
+        fontSize: 15,
+        color: "#cccac4",
+        fontWeight: "bold",
+        position: "relative",
+        right: 80
+
+    },
+
+    skip: {
+        flexDirection: "row",
+
+    },
+
+    skipText: {
+        fontSize: 15,
+        color: "#cccac4",
+        fontWeight: "bold",
+        position: "relative",
+        left: 100
 
 
-
-
-
-
-
-
-
-    }
+    },
 
 });

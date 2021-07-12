@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { Button } from 'react-native-elements';
 
 
-export default function App() {
+export default function App({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.site}>
@@ -37,9 +37,18 @@ export default function App() {
 
             <View style={styles.Navi}>
 
+                <TouchableOpacity onPress={() => {
+                    navigation.navigate("AddToCart")
+                }} style={styles.previous}>
+                    <Text style={styles.previousText}>previous</Text>
+                </TouchableOpacity>
+
                 <TouchableOpacity style={styles.naviSmall}></TouchableOpacity>
                 <TouchableOpacity style={styles.naviSmall}></TouchableOpacity>
                 <TouchableOpacity style={styles.naviBig}></TouchableOpacity>
+
+
+
 
 
             </View>
@@ -117,18 +126,15 @@ const styles = StyleSheet.create({
         alignSelf: "center",
         backgroundColor: "#4d2f75",
 
-
-
-
-
     },
+
     naviSmall: {
-        height: 15,
-        width: 15,
+        height: 10,
+        width: 10,
         borderRadius: 10,
         backgroundColor: "#e6e6e6",
-
-
+        marginHorizontal: 5,
+        justifyContent: "center"
 
     },
 
@@ -136,12 +142,26 @@ const styles = StyleSheet.create({
     Navi: {
         flexDirection: "row",
         padding: 50,
-        justifyContent: "space-between",
+        justifyContent: "center",
         alignItems: "center",
         width: "50%",
+        position: "relative",
+        right: 25
 
+    },
 
+    previous: {
+        flexDirection: "row",
+    },
 
-    }
+    previousText: {
+        fontSize: 15,
+        color: "#cccac4",
+        fontWeight: "bold",
+        position: "relative",
+
+        right: 80
+
+    },
 
 });

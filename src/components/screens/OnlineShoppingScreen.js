@@ -39,6 +39,12 @@ export default function App({ navigation }) {
                 <TouchableOpacity style={styles.naviSmall}></TouchableOpacity>
                 <TouchableOpacity style={styles.naviSmall}></TouchableOpacity>
 
+                <TouchableOpacity onPress={() => {
+                    navigation.navigate("AddToCart")
+                }}>
+                    <Text style={styles.skipText}>skip</Text>
+                </TouchableOpacity>
+
 
             </View>
 
@@ -110,16 +116,13 @@ const styles = StyleSheet.create({
 
 
 
-
     },
     naviSmall: {
-        height: 15,
-        width: 15,
+        height: 10,
+        width: 10,
         borderRadius: 10,
         backgroundColor: "#e6e6e6",
-
-
-
+        marginHorizontal: 5
     },
 
 
@@ -127,16 +130,19 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         padding: 50,
         justifyContent: "space-between",
-        alignItems: "center",
+        alignItems: 'center',
         width: "50%",
+        position: "relative",
+        left: 25
+    },
 
 
-
-
-
-
-
-
+    skipText: {
+        fontSize: 15,
+        color: "#cccac4",
+        fontWeight: "bold",
+        position: "relative",
+        left: 100
 
     }
 
